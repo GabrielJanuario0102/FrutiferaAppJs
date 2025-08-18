@@ -1,0 +1,50 @@
+html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    footer {
+      text-align: center;
+    }
+
+
+.logo a {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    gap: 5%;
+}
+.logo img {
+    border-radius: 30%;
+    height: 70px;
+    width: auto;
+    aspect-ratio: 1 / 1 ;
+}
+
+/*centralizar o carrossel no espaço determinado*/
+.divcarrosel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*determina que será usado apenas 40% da tela, que será centralizada pelo "divcarrosel", além de deixar o aspecto de todas as imagens do carrossel em 3/2.*/
+.carrosel{
+    width: 65%;
+}
+.carrosel img{
+    aspect-ratio: 16 / 9;
+}
+
+
+/*oferece um espaço dos lados laterais da tela, além de fazer com que todas as imagens dos cards tenham o mesmo tamanho*/
+.ofertas img {
+    aspect-ratio: 1 / 1;
+
+}
