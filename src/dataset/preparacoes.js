@@ -33,6 +33,10 @@ let fruteirasCard = [
     }
 ];
 
+let listaFruteiras = JSON.parse(localStorage.getItem('fruteiras'));
+for (let itemListaFruteiras of listaFruteiras) {
+    fruteirasCard.push(itemListaFruteiras);
+}
 
 let preparacoesfrutas = [];
 

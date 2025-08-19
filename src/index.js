@@ -1,5 +1,8 @@
 import { fruteirasCard } from './dataset/preparacoes.js';
 
+
+
+
 let getCartao = (fruteira) => {
     // Calcula a idade da planta em meses
     const dataPlantio = new Date(fruteira.dataPlantio);
@@ -16,13 +19,13 @@ let getCartao = (fruteira) => {
     return `
     <div class="col">
         <div class="card h-100 shadow-sm">
-            <img src="${fruteira.src}" class="card-img-top" alt="${fruteira.nomeEspecie}" style="object-fit: cover; height: 200px;">
+            <img src="${fruteira.src}" class="card-img-top" alt="${fruteira.nomePopular}" style="object-fit: cover; height: 200px;">
             <div class="card-header bg-primary text-white">
-                <h5 class="card-title mb-0">${fruteira.nomeEspecie}</h5>
+                <h5 class="card-title mb-0">${fruteira.nomePopular}</h5>
             </div>
             <div class="card-body">
                 <p class="card-text"><strong>Nome Científico:</strong> <em>${fruteira.nomeCientifico}</em></p>
-                <p class="card-text"><strong>Produção Média:</strong> ${fruteira.producaoMedia} Kg/safra</p>
+                <p class="card-text"><strong>Produção Média:</strong> ${fruteira.prodMedia} Kg/safra</p>
                 <p class="card-text"><strong>Data do Plantio:</strong> ${dataFormatada}</p>
             </div>
             <div class="card-footer text-muted">
