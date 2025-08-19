@@ -1,10 +1,11 @@
-// Cria o HTML para uma nova linha da tabela com os dados da fruteira.
+// vai criar uma nova linha para a tabela frutifera.
 const addFruteiraTabela = (fruteira) => {
-    // Seleciona o corpo da tabela onde as linhas serão inseridas.
+    // Seleciona o corpo da tabela onde as linhas serão inseridas
     const fruteirasTBody = document.getElementById('frutiferaTBody');
 
-    // Calcula a idade da planta em meses
+    // de acordo com o video que vi no youtube, funciona assim:
     const dataPlantio = new Date(fruteira.dataPlantio);
+    //hoje recebe a data de hoje
     const hoje = new Date();
     let meses = (hoje.getFullYear() - dataPlantio.getFullYear()) * 12;
     meses -= dataPlantio.getMonth();
@@ -12,8 +13,8 @@ const addFruteiraTabela = (fruteira) => {
     // Garante que a idade não seja negativa se a data for no futuro
     const idadeEmMeses = meses <= 0 ? 0 : meses;
 
-    // Formata a data de plantio para o padrão brasileiro (dd/mm/aaaa)
-    // Adiciona 'T00:00:00' para evitar problemas com fuso horário
+    // Vai formatar a data de plantio para o padrão brasileiro (dia,mes,ano)
+    // vai adicionar 'T00:00:00' para evitar problemas com fuso horário 
     const dataFormatada = new Date(fruteira.dataPlantio + 'T00:00:00').toLocaleDateString('pt-BR');
 
     const fruteiraTr = `<tr>
