@@ -4,7 +4,7 @@ let fruteirasCard = [
         imagem: "/assets/imagens/morango.jpg",
         nomePopular: "Morango",
         nomeCientifico: "Fragaria x ananassa",
-        producaoMedia: "185",
+        prodMedia: "185",
         dataPlantio: "2019-06-15"
     },
     {
@@ -12,7 +12,7 @@ let fruteirasCard = [
         imagem: "/assets/imagens/abacate.jpg",
         nomePopular: "Abacate",
         nomeCientifico: "Pyrus communis",
-        producaoMedia: "200",
+        prodMedia: "200",
         dataPlantio: "2021-06-10"
     },
     {
@@ -20,7 +20,7 @@ let fruteirasCard = [
         imagem: "/assets/imagens/manga.jpg",
         nomePopular: "Manga",
         nomeCientifico: "Mangifera indica",
-        producaoMedia: "90",
+        prodMedia: "90",
         dataPlantio: "2022-09-20"
     },
     {
@@ -28,12 +28,12 @@ let fruteirasCard = [
         imagem: "/assets/imagens/maca.jpg",
         nomePopular: "Maça",
         nomeCientifico: "Malus domestica",
-        producaoMedia: "200",
+        prodMedia: "200",
         dataPlantio: "2022-03-05"
     }
 ];
 
-let listaFruteiras = JSON.parse(localStorage.getItem('fruteiras'));
+const listaFruteiras = JSON.parse(localStorage.getItem('fruteiras')) ?? [];
 for (let itemListaFruteiras of listaFruteiras) {
     fruteirasCard.push(itemListaFruteiras);
 }
