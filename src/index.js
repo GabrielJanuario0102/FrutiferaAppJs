@@ -19,7 +19,7 @@ let getCartao = (fruteira) => {
     return `
     <div class="col">
         <div class="card h-100 shadow-sm">
-            <img src="${fruteira.src}" class="card-img-top" alt="${fruteira.nomePopular}" style="object-fit: cover; height: 200px;">
+            <img src="${fruteira.imagem}" class="card-img-top" alt="${fruteira.nomePopular}" style="object-fit: cover; height: 200px;">
             <div class="card-header bg-primary text-white">
                 <h5 class="card-title mb-0">${fruteira.nomePopular}</h5>
             </div>

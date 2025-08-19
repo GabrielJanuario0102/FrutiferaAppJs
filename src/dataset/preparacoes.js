@@ -1,32 +1,32 @@
 let fruteirasCard = [
     {
         
-        src: "/assets/imagens/morango.jpg",
-        nomeEspecie: "Morango",
+        imagem: "/assets/imagens/morango.jpg",
+        nomePopular: "Morango",
         nomeCientifico: "Fragaria x ananassa",
         producaoMedia: "185",
         dataPlantio: "2019-06-15"
     },
     {
     
-        src: "/assets/imagens/abacate.jpg",
-        nomeEspecie: "Abacate",
+        imagem: "/assets/imagens/abacate.jpg",
+        nomePopular: "Abacate",
         nomeCientifico: "Pyrus communis",
         producaoMedia: "200",
         dataPlantio: "2021-06-10"
     },
     {
         
-        src: "/assets/imagens/manga.jpg",
-        nomeEspecie: "Manga",
+        imagem: "/assets/imagens/manga.jpg",
+        nomePopular: "Manga",
         nomeCientifico: "Mangifera indica",
         producaoMedia: "90",
         dataPlantio: "2022-09-20"
     },
     {
         
-        src: "/assets/imagens/maca.jpg",
-        nomeEspecie: "Maça",
+        imagem: "/assets/imagens/maca.jpg",
+        nomePopular: "Maça",
         nomeCientifico: "Malus domestica",
         producaoMedia: "200",
         dataPlantio: "2022-03-05"
