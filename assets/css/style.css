@@ -36,7 +36,7 @@ html, body {
 
 /*determina que será usado apenas 40% da tela, que será centralizada pelo "divcarrosel", além de deixar o aspecto de todas as imagens do carrossel em 3/2.*/
 .carrosel{
-    width: 65%;
+    width: 45%;
 }
 .carrosel img{
     aspect-ratio: 16 / 9;

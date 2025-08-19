@@ -1,26 +1,41 @@
-let preparacoesCard = [
-  {
-    src: 'https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=1337&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    titulo: 'Café Expresso',
-    descricao: 'Café expresso ristreto com grãos selecionados.',
-    preco: 'R$ 10',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1512372388054-a322888e67a6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    titulo: 'Café em grãos',
-    descricao: 'Café em grãos de terras vulcânicas.',
-    preco: 'R$ 40',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1599861425846-d4f19b180e77?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNyb2lzc2FudCUyMGZvb2R8ZW58MHx8MHx8fDA%3D',
-    titulo: 'Croissant',
-    descricao: 'Farinha 0-0.',
-    preco: 'R$ 30',
-  },
+let fruteirasCard = [
+    {
+        
+        src: "/assets/imagens/morango.jpg",
+        nomeEspecie: "Morango",
+        nomeCientifico: "Fragaria x ananassa",
+        producaoMedia: "185",
+        dataPlantio: "2019-06-15"
+    },
+    {
+    
+        src: "/assets/imagens/abacate.jpg",
+        nomeEspecie: "Abacate",
+        nomeCientifico: "Pyrus communis",
+        producaoMedia: "200",
+        dataPlantio: "2021-06-10"
+    },
+    {
+        
+        src: "/assets/imagens/manga.jpg",
+        nomeEspecie: "Manga",
+        nomeCientifico: "Mangifera indica",
+        producaoMedia: "90",
+        dataPlantio: "2022-09-20"
+    },
+    {
+        
+        src: "/assets/imagens/maca.jpg",
+        nomeEspecie: "Maça",
+        nomeCientifico: "Malus domestica",
+        producaoMedia: "200",
+        dataPlantio: "2022-03-05"
+    }
 ];
 
-let preparacoesCardapio = [];
 
-let inserirPreparacao = () => {};
+let preparacoesfrutas = [];
 
-export { preparacoesCard, preparacoesCardapio, inserirPreparacao };
+let inserirfrutas = () => { };
+// Exporta as variáveis para que possam ser usadas em outros arquivos .
+export { fruteirasCard, preparacoesfrutas, inserirfrutas };

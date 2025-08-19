@@ -1,96 +1,103 @@
-// import Toastify from '../node_modules/toastify-js/src/toastify.js';
-// import '../node_modules/toastify-js/src/toastify.css';
-let itensCardapio = [];
-const addItemCardapioTable = (itemCardapio) => {
-let itensCardapioTBody = document.getElementById('itensCardapioTBody');
-let itemCardapioTr = `<tr>
-   <th scope="row">1</th>
-   <td>${itemCardapio.nome}</td>
-   <td>${itemCardapio.preco}</td>
-   <td>${itemCardapio.descricao}</td>
- </tr>`;
+// Cria o HTML para uma nova linha da tabela com os dados da fruteira.
+const addFruteiraTabela = (fruteira) => {
+    // Seleciona o corpo da tabela onde as linhas serão inseridas.
+    const fruteirasTBody = document.getElementById('frutiferaTBody');
 
-itensCardapioTBody.insertAdjacentHTML('beforeend', itemCardapioTr);
+    // Calcula a idade da planta em meses
+    const dataPlantio = new Date(fruteira.dataPlantio);
+    const hoje = new Date();
+    let meses = (hoje.getFullYear() - dataPlantio.getFullYear()) * 12;
+    meses -= dataPlantio.getMonth();
+    meses += hoje.getMonth();
+    // Garante que a idade não seja negativa se a data for no futuro
+    const idadeEmMeses = meses <= 0 ? 0 : meses;
+
+    // Formata a data de plantio para o padrão brasileiro (dd/mm/aaaa)
+    // Adiciona 'T00:00:00' para evitar problemas com fuso horário
+    const dataFormatada = new Date(fruteira.dataPlantio + 'T00:00:00').toLocaleDateString('pt-BR');
+
+    const fruteiraTr = `<tr>
+        <th scope="row">${fruteira.id}</th>
+        <td>${fruteira.nomePopular}</td>
+        <td>${fruteira.nomeCientifico}</td>
+        <td>${fruteira.prodMedia}</td>
+        <td>${dataFormatada}</td>
+        <td>${idadeEmMeses}</td>
+    </tr>`;
+
+    fruteirasTBody.insertAdjacentHTML('beforeend', fruteiraTr);
 };
+
+//Carrega as fruteiras salvas no localStorage e as exibe na tabela.
+
 
 const carregarTabela = () => {
-  let itensCardapio = JSON.parse(localStorage.getItem('itensCardapio')) ?? [];
-
-  // cond ? verd: falsa
-  // JSON.parse(localStorage.getItem('itensCardapio')) != null
-  //   ? JSON.parse(localStorage.getItem('itensCardapio'))
-  //   : [];
-
-  for (let itemCardapio of itensCardapio) {
-    addItemCardapioTable(itemCardapio);
-  }
+    const fruteiras = JSON.parse(localStorage.getItem('fruteiras')) ?? [];
+    for (const fruteira of fruteiras) {
+        addFruteiraTabela(fruteira);
+    }
 };
 
-const setPreparacaoFormValues = (nome = '', descricao = '', preco = '') => {
-  const nomeInput = document.querySelector('#nome');
-  const descricaoInput = document.querySelector('#descricao');
-  const precoInput = document.querySelector('#preco');
 
-  nomeInput.value = nome;
-  descricaoInput.value = descricao;
-  precoInput.value = preco;
+const setPreparacaoFormValues = (nomeEspecie = '', nomeCientifico = '', producaoMedia = '', dataPlantio = '') => {
+    const nomeEspecieInput = document.querySelector('#nomePopular');
+    const nomeCientificoInput = document.querySelector('#nomeCientifico');
+    const producaoMediaInput = document.querySelector('#prodMedia');
+    const dataPlantioInput = document.querySelector('#dataPlantio');
+
+    nomeEspecieInput.value = nomeEspecie;
+    nomeCientificoInput.value = nomeCientifico;
+    producaoMediaInput.value = producaoMedia;
+    dataPlantioInput.value = dataPlantio;
 };
+
+
+//Manipula o evento de envio do formulário de cadastro de fruteira.
 
 const handleSubmit = (event) => {
-  event.preventDefault();
-  // let nomeInput = document.getElementById('nome');
-  // let nome = nomeInput.value;
-  // let precoInput = document.getElementById('preco');
-  // let preco = precoInput.value;
-  // let descricaoInput = document.getElementById('descricao');
-  // let descricao = descricaoInput.value;
-  // let itemCardapio = new Cardapio();
-  // let itemCardapio = { nome: nome, preco: preco, descricao: descricao };
-  // let itemCardapio = { nome, preco, descricao };
+    event.preventDefault();
 
-  // Dados do formulário -> criação do objeto.
-  let cardapioForm = document.getElementById('itemCadastrarForm');
-  // cardapioForm = event.target;
-  let cardapioFormData = new FormData(cardapioForm);
-  let itemCardapio = Object.fromEntries(cardapioFormData);
+    // Dados do formulário -> criação do objeto.
+    const form = document.getElementById('frutaCadastrarForm');
+    const formData = new FormData(form);
+    const fruteira = Object.fromEntries(formData);
 
-  // Adicionam o valor no localstorage.
-  itensCardapio.push(itemCardapio);
-  localStorage.setItem('itensCardapio', JSON.stringify(itensCardapio));
+    // Adiciona o ID único gerado automaticamente
+    fruteira.id = Date.now();
 
-  // Adicionar na tabela.
-  addItemCardapioTable(itemCardapio);
+    // Pega os itens que JÁ EXISTEM no localStorage. Se não houver nenhum, cria um array vazio.
+    const fruteirasAtuais = JSON.parse(localStorage.getItem('fruteiras')) ?? [];
 
-  // Limpar os valores do formulário.
-  cardapioForm.reset();
-  setPreparacaoFormValues();
+    // Adiciona a nova fruteira ao array que acabamos de carregar.
+    fruteirasAtuais.push(fruteira);
 
-  // Fechar o modal.
-  $('#cardapioModal').modal('hide');
+    // Salva o array COMPLETO E ATUALIZADO de volta no localStorage.
+    localStorage.setItem('fruteiras', JSON.stringify(fruteirasAtuais));
 
-  // Toastify({
-  //   text: 'This is a toast',
-  //   duration: 3000,
-  //   destination: 'https://github.com/apvarun/toastify-js',
-  //   newWindow: true,
-  //   close: true,
-  //   gravity: 'top', // `top` or `bottom`
-  //   position: 'left', // `left`, `center` or `right`
-  //   stopOnFocus: true, // Prevents dismissing of toast on hover
-  //   style: {
-  //     background: 'linear-gradient(to right, #00b09b, #96c93d)',
-  //   },
-  //   onClick: function () {}, // Callback after click
-  // }).showToast();
-  Toastify({
-    text: 'Item do cardápio adicionado com sucesso!',
-    duration: 3000, // Duration in milliseconds (3 seconds)
-  }).showToast();
+    // Adicionar na tabela.
+    addFruteiraTabela(fruteira);
+
+    // Limpar os valores do formulário.
+    form.reset();
+
+    // 1 Fechar o modal.
+    //const fruteiraModal = bootstrap.Modal.getInstance(document.getElementById('fruteiraModal'));
+    //fruteiraModal.hide();
+    
+    // 2 Fechar o modal.
+    $('#cardapioModal').modal('toggle');
+
+    // Exibe uma notificação de sucesso.
+    Toastify({
+        text: 'Item do cardápio adicionado com sucesso!',
+        duration: 3000,
+    }).showToast();
 };
 
-let itemCadastrarForm = document.getElementById('itemCadastrarForm');
-itemCadastrarForm.onsubmit = handleSubmit;
-// itemCadastrarForm.addEventListener('submit', handleSubmit);
+
+// Adiciona os listeners (ouvintes de eventos)
+const form = document.getElementById('frutaCadastrarForm');
+form.addEventListener('submit', handleSubmit);
 
 let body = document.body;
 body.onload = carregarTabela;

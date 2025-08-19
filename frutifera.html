@@ -7,6 +7,7 @@
   <title>Frutifera</title>
 
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="node_modules/toastify-js/src/toastify.css" />
 
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
@@ -18,9 +19,9 @@
         <!--logo do header/site-->
         <div class="logo">
           <a class="navbar-brand" href="index.html">
-            <img src="assets/imagens/cafeteriaLogo.jpg" alt="" width="50" height="38"
+            <img src="assets/imagens/logo.jpg" alt="" width="50" height="38"
               class="d-inline-block align-text-top">
-            Cafeteria Reborn
+            Frutífera Reborn
           </a>
         </div>
       </div>
@@ -35,7 +36,7 @@
             <a class="navbar-brand" href="index.html">Home</a>
           </li>
           <li class="nav-item active">
-            <a class="navbar-brand" href="cardapio.html">Cardapio</a>
+            <a class="navbar-brand" href="frutifera.html">Frutífera</a>
           </li>
         </ul>
       </div>
@@ -63,28 +64,34 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar - Item Cardápio</h1>
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar - Frutífera</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="itemCadastrarForm">
+                <form id="frutaCadastrarForm">
                   <div class="modal-body">
 
-                    <!--nome-->
+                    <!--nome popular-->
                     <div class="mb-3">
-                      <label for="nome" class="form-label">Nome</label>
-                      <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome">
+                      <label for="nomePopular" class="form-label">Nome Popular</label>
+                      <input type="text" class="form-control" id="nomePopular" placeholder="Nome Popular" name="nomePopular">
                     </div>
 
-                    <!--preço-->
+                    <!--nome cientifico-->
                     <div class="mb-3">
-                      <label for="preco" class="form-label">Preço</label>
-                      <input type="text" class="form-control" id="preco" placeholder="Preço" name="preco">
+                      <label for="nomeCientifico" class="form-label">Nome Cientifico</label>
+                      <input type="text" class="form-control" id="nomeCientifico" placeholder="Nome Cientifico" name="nomeCientifico">
                     </div>
 
-                    <!--descrição-->
+                    <!--prod media por safra-->
                     <div class="mb-3">
-                      <label for="descricao" class="form-label">Descricao</label>
-                      <input type="text" class="form-control" id="descricao" placeholder="Descrição" name="descricao">
+                      <label for="prodMedia" class="form-label">prodMedia</label>
+                      <input type="number" class="form-control" id="prodMedia" placeholder="Produção média/safra(Kg)" name="prodMedia">
+                    </div>
+
+                    <!--dataPlantio-->
+                    <div class="mb-3">
+                      <label for="dataPlantio" class="form-label">dataPlantio</label>
+                      <input type="date" class="form-control" id="dataPlantio" placeholder="Data de plantio" name="dataPlantio">
                     </div>
 
 
@@ -107,13 +114,15 @@
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">ITEM</th>
-            <th scope="col">PREÇO</th>
-            <th scope="col">DESCRIÇÂO</th>
+            <th scope="col">NOME POPULAR</th>
+            <th scope="col">NOME CIENTIFICO</th>
+            <th scope="col">PRODUÇÃO MÉDIA/SAFRA(Kg)</th>
+            <th scope="col">DATA DE PLANTIO</th>
+            <th scope="col">IDADE (MESES)</th>
           </tr>
         </thead>
 
-        <tbody id="itensCardapioTBody">
+        <tbody id="frutiferaTBody">
 
 
         </tbody>
@@ -130,7 +139,7 @@
       <div class="row">
         <!--Grid column-->
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Cafeteria Reborn</h5>
+          <h5 class="text-uppercase">Frutífera Reborn</h5>
 
           <ul class="list-unstyled mb-0">
             <li>
@@ -142,11 +151,11 @@
 
         <!--Grid column-->
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase mb-0">Links</h5>
+          <h5 class="text-uppercase mb-0">Páginas</h5>
 
           <ul class="list-unstyled">
             <li>
-              <a href="#!" class="text-body">Link 1</a>
+              <a href="frutifera.html" class="text-body">Frutifera</a>
             </li>
           </ul>
         </div>
@@ -166,12 +175,12 @@
     <!-- Copyright -->
   </footer>
 
-  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="./node_modules/toastify-js/src/toastify.js"></script>
 
   
-  <script src="src/cardapio.js"></script>
+  <script src="src/frutifera.js"></script>
 </body>
 
 </html>
